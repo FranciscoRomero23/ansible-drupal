@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Actualizar lista de paquetes
+    apt: update_cache=yes

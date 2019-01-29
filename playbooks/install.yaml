@@ -1,0 +1,21 @@
+---
+- name: Instalar paquetes necesarios nodo1
+  hosts: nodo1
+  become: yes
+  tasks:
+  - name: Instalación de PostgresSQL y Bind9
+    apt: pkg={{ item }}
+    with_items:
+      - postgresql
+      - bind9
+
+- name: Instalar paquetes necesarios nodo2
+  hosts: nodo2
+  become: yes
+  tasks:
+  - name: Instalación de Apache y Fpm-php
+    apt: pkg={{ item }}
+    with_items:
+      - apache2
+      - php7.0-fpm
+
