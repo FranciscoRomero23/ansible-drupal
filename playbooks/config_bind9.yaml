@@ -1,0 +1,24 @@
+---
+- name: Configuración de Bind9
+  hosts: 192.168.1.101
+  become: yes
+  tasks:
+  - name: Copiar el named.conf.local
+    copy: >
+      src=files/bind9/named.conf.local 
+      dest=/etc/bind/named.conf.local
+  - name: Copiar el db.example.com
+    copy: >
+      src=files/bind9/db.example.com 
+      dest=/var/cache/bind/db.example.com
+  - name: Copiar el db.192.168.1
+    copy: >
+      src=files/bind9/db.192.168.1  
+      dest=/var/cache/bind/db.192.168.1 
+    notify:
+      - restart bind 
+
+  handlers:
+    - name: restart bind
+      service: name=bind9 state=restarted
+
