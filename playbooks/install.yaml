@@ -1,6 +1,6 @@
 ---
 - name: Instalar paquetes necesarios nodo1
-  hosts: nodo1
+  hosts: 192.168.1.101
   become: yes
   tasks:
   - name: Instalación de PostgresSQL y Bind9
@@ -10,7 +10,7 @@
       - bind9
 
 - name: Instalar paquetes necesarios nodo2
-  hosts: nodo2
+  hosts: 192.168.1.102
   become: yes
   tasks:
   - name: Instalación de Apache y Fpm-php
