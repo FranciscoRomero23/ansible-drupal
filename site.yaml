@@ -1,3 +1,4 @@
 - include: playbooks/common.yaml
 - include: playbooks/install.yaml
 - include: playbooks/config_apache2.yaml
+- include: playbooks/config_bind9.yaml

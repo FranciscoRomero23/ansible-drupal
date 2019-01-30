@@ -1,6 +1,6 @@
 ---
 - name: Configuración de Apache
-  hosts: 192.168.1.102
+  hosts: 10.0.0.102
   become: yes
   tasks:
   - name: Copiar el virtualhost

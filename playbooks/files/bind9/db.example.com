@@ -4,7 +4,7 @@
 ; Instead, copy it, edit named.conf, and use that copy.
 ;
 $TTL    5
-@       IN      SOA     nodo1.example.com. example.com. (
+@       IN      SOA     nodo1.example.com. vagrant.example.com. (
                               1         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
@@ -12,9 +12,8 @@ $TTL    5
                           86400 )       ; Negative Cache TTL
 ;
 @       IN      NS	nodo1.example.com.
-$ORIGIN drupal.example.com.
+$ORIGIN example.com.
 
-nodo1   IN      A       192.168.1.101
-nodo2   IN      A       192.168.1.102
+nodo1   IN      A       10.0.0.101
+nodo2   IN      A       10.0.0.102
 drupal	IN	CNAME   nodo2
-
