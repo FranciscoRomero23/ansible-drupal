@@ -17,5 +17,8 @@
     apt: pkg={{ item }}
     with_items:
       - apache2
+      - apache2-utils
+      - libapache2-mod-php7.0
       - php7.0-fpm
+      - php-pgsql
 
