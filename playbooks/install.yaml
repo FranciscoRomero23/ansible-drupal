@@ -7,6 +7,8 @@
     apt: pkg={{ item }}
     with_items:
       - postgresql
+      - libpq-dev
+      - python-psycopg2
       - bind9
 
 - name: Instalar paquetes necesarios nodo2

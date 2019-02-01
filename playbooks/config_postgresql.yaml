@@ -1,0 +1,19 @@
+---
+- name: Configuración de PostgreSQL
+  hosts: 10.0.0.101
+  become: yes
+  become_user: postgres
+  gather_facts: no
+
+  vars:
+    dbname: drupal_db
+    dbuser: drupal_user
+    dbpassword: drupalpassword
+    ansible_ssh_pipelining: true
+
+  tasks:
+  - name: ensure database is created
+    postgresql_db: name={{dbname}}
+
+  - name: ensure user has access to database
+    postgresql_user: db={{dbname}} name={{dbuser}} password={{dbpassword}} priv=ALL
