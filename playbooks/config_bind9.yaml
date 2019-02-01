@@ -24,7 +24,6 @@
       path: /var/cache/bind
       owner: bind
       group: bind
-      mode: 644
     with_items:
       - db.example.com
       - db.10.0.0
