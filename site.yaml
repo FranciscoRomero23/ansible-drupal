@@ -2,3 +2,5 @@
 - include: playbooks/install.yaml
 - include: playbooks/config_apache2.yaml
 - include: playbooks/config_bind9.yaml
+- include: playbooks/config_postgresql.yaml
+- include: playbooks/install_drupal.yaml

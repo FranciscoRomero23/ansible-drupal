@@ -1,0 +1,28 @@
+---
+- name: Instalación de drupal
+  hosts: 10.0.0.102
+  become: yes
+  tasks:
+  - name: Descarga de drupal
+    get_url: 
+      url: https://ftp.drupal.org/files/projects/drupal-8.6.7.zip
+      dest: /home/vagrant/drupal-8.6.7.zip
+  - name: Descomprimimos los ficheros
+    unarchive:
+      src: /home/vagrant/drupal-8.6.7.zip
+      dest: /var/www/html
+      remote_src: yes
+      owner: www-data
+      group: www-data
+      mode: 0755
+  - name: Habilitamos el modulo fast cgi
+    command: a2enmod proxy_fcgi
+  - name: Habilitamos la configuración de fpm
+    command: a2enconf php7.0-fpm
+    notify:
+      - restart apache
+
+  handlers:
+    - name: restart apache
+      service: name=apache2 state=restarted
+
