@@ -1,0 +1,24 @@
+---
+- name: Configuración del acceso remoto para postgresql
+  hosts: 10.0.0.101
+  become: yes
+  tasks:
+  - name: Copiar el fichero postgresql.conf
+    copy: >
+      src=files/postgresql/postgresql.conf
+      dest=/etc/postgresql/9.6/main/postgresql.conf
+  - name: Copiar el fichero pg_hba.conf
+    copy: >
+      src=files/postgresql/pg_hba.conf
+      dest=/etc/postgresql/9.6/main/pg_hba.conf
+  - name: Cambiar grupo y usuario
+    file:
+      path: /etc/postgresql/9.6/main
+      owner: postgres
+      group: postgres
+    with_items:
+      - postgresql.conf
+      - pg_hba.conf
+  - name: restart postgres
+    service: name=postgresql state=restarted
+

@@ -12,8 +12,8 @@
     ansible_ssh_pipelining: true
 
   tasks:
-  - name: ensure database is created
+  - name: Creación de la base de datos
     postgresql_db: name={{dbname}}
-
-  - name: ensure user has access to database
+  - name: Creación del usuario
     postgresql_user: db={{dbname}} name={{dbuser}} password={{dbpassword}} priv=ALL
+
