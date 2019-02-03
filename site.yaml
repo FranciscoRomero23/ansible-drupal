@@ -5,3 +5,4 @@
 - include: playbooks/config_postgresql.yaml
 - include: playbooks/postgresql_conexion.yaml
 - include: playbooks/install_drupal.yaml
+- include: playbooks/config_drupal.yaml
