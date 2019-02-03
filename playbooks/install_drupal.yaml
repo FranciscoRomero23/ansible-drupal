@@ -21,7 +21,7 @@
     command: a2enmod rewrite
   - name: Habilitamos la configuración de fpm
     command: a2enconf php7.0-fpm
-  - name: Copiar el virtualhost
+  - name: Copiar el virtualhost con las reglas para el modulo rewrite
     copy: >
       src=files/apache2/drupal_rewrite.conf
       dest=/etc/apache2/sites-available/drupal.conf

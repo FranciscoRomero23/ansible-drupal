@@ -21,7 +21,6 @@
       - apache2
       - apache2-utils
       - postgresql-client
-      - libapache2-mod-php7.0
       - php7.0-fpm
       - php-pgsql
       - php7.0-dom
